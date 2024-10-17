@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   var today = getCurrentDate();
 
   // 結果をタイトルの文字列'Express V'の後に入れる
-  res.render('index', {title: 'Express V'+sum, date: today});
+  res.render('index', {title: 'Express V'+sum});
 });
 
 //足し算を実行する関数

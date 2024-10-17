@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - main  # mainへのプルリク、マージ時にもこの記述で起動
+    paths-ignore: # 以下の資産変更時にはフロー実行しない
+      - README.md
+      - .gitignore
+      - .github/**
   workflow_dispatch:  # GitHubコンソールから手動実行もできるように
 
 jobs:

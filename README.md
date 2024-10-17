@@ -4,7 +4,8 @@
 * 言語：nodeファイル。今後拡張予定
 * 環境へのアクセス
   * 開発環境　[URLはこれから作成](これから作成)
-  * 本番環境　[URLはこれから作成](これから作成)
+  * 本番ステージング環境　[URLはこれから作成](これから作成)
+  * 本番稼働環境　[URL](https://nodeapplication-fjd9gsfufwangrhb.japaneast-01.azurewebsites.net/)
 
 ## インストール方法（installation）
 
@@ -46,10 +47,12 @@ Actionsフローによる以下のような流れが目標
     1. 性的解析ツールによる脆弱性検査を実施
     2. 本番ステージング環境（[URLはこれから作成](これから作成)）に自動デプロイ
     3. ドキュメント作成し、FEP Pagesに記載
-6. デプロイ成功を確認できたら稼働環境へスワップ
+6. デプロイ成功を確認できたら本番稼働環境([URL](https://nodeapplication-fjd9gsfufwangrhb.japaneast-01.azurewebsites.net/))へスワップ
 7. 日次で以下のフローも回す
     1. 依存関係チェック
     2. 稼働確認
+
+※注意　最初はdeployフローでそのまま稼働環境にデプロイ。その後staging環境を手配（コスト節約のため）
 
 ## 利用ライセンス
 

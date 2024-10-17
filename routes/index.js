@@ -1,25 +1,25 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   //1+3を行うロジック
-  var sum = add(1,3);
-  var today = getCurrentDate();
+  const sum = add(1,5);
+  const today = getCurrentDate();
 
   // 結果をタイトルの文字列'Express V'の後に入れる
-  res.render('index', {title: 'Express V'+sum, date: today});
+  res.render('index.ejs', {title: 'Express V'+sum, date: today});
 });
 
 //足し算を実行する関数
-function add(a, b) {
+export function add(a, b) {
   return a + b;
 }
 
 //今日の日付を文字列で取得
-function getCurrentDate() {
-  var date = new Date();
+export function getCurrentDate() {
+  const date = new Date();
   return date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate();
 }
 
-module.exports = router;
+export default router;

@@ -4,7 +4,7 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
   //1+3を行うロジック
-  const sum = add(1,5);
+  const sum = add(1,7);
   const today = getCurrentDate();
 
   // 結果をタイトルの文字列'Express V'の後に入れる

@@ -41,7 +41,7 @@ Actionsフローによる以下のような流れが目標
 
 1. develop環境へのプッシュをトリガーに、pushDevelopフローを実行
     1. 開発環境（[URL](https://nodeapplicationdevelop-g4bgeqh9h6djewc5.japaneast-01.azurewebsites.net/)）に自動デプロイ（済！）
-    2. 自動テスト実行（ユニットテスト）
+    2. 自動テスト実行（ユニットテスト）（済！）
 3. 動作確認し、本番移送しても問題ないことを確認
 4. developブランチからmainブランチへのマージ（プルリクエスト）をトリガーに、mergeMainフローを実行
     1. 性的解析ツールによる脆弱性検査を実施

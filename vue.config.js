@@ -6,14 +6,19 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default {
-  // ビルドされたファイルの出力先を指定
-  outputDir: path.resolve(dirname, './public/js'),
+  // ビルドされたファイルの出力先を `dist` に設定
+  outputDir: path.resolve(dirname, './dist'),
 
-  // 開発サーバーの設定をカスタマイズ
+  // 本番環境ではルートにパスを設定
+  publicPath: '/',
+
+  // 開発サーバーの設定
   devServer: {
-    proxy: 'http://localhost:3000',  // Expressサーバーにプロキシする場合
-  },
-
-  // ビルド時のパブリックパスを指定
-  publicPath: '/js'
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // Expressサーバーにプロキシ
+        changeOrigin: true
+      }
+    }
+  }
 };

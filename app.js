@@ -1,3 +1,4 @@
+// 必要モジュールのインポート
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
@@ -5,25 +6,31 @@ import {fileURLToPath} from 'url';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
+//ルータのインポート（routes配下にある）
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 
+// Expressインスタンス作成。ここに必要情報を格納していく
 const app = express();
 
-// __dirnameを再現
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// ファイルパス情報を作成
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+const viewsPath = path.join(dirname, 'views');
+const publicPath = path.join(dirname, 'public');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// viewsフォルダ内ファイルのエンジン情報を格納（ejs）
+app.set('views', viewsPath);
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// ミドルウェアをセットアップ
+app.use(logger('dev')); //ログ出力ミドルウェア
+app.use(express.json()); //json利用ミドルウェア
+app.use(express.urlencoded({ extended: false })); //URLエンコードミドルウェア
+app.use(cookieParser()); // cookie利用ミドルウェア
+app.use(express.static(publicPath)); // 静的ファイル提供用ミドルウェア
 
+// ルーティング（/がきたらindex.jsに遷移、など）
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -40,7 +47,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error.ejs');
 });
 
 export default app;

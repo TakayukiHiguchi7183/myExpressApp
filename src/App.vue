@@ -2,7 +2,7 @@
   <div>
     <p>Welcome to mypage</p>
     <p>Calculate result is {{ sum }} </p>
-    <p>Today is {{ date }} </p>
+    <p>Today is {{ date }} !!!</p>
   </div>
 </template>
 

@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha"
+    "test": "mocha",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,10 +16,12 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^5.1.1",
-    "mocha": "^10.7.3"
+    "mocha": "^10.7.3",
+    "@vue/cli-service": "^5.0.0"
   }
 }

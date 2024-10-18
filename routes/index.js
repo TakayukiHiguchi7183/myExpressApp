@@ -13,8 +13,18 @@ router.get('/', (req, res, next) => {
 });
 
 // 足し算結果を取得するAPI
-router.get('/api/sum', (req, res) => {
-  const sum = add(1,7);
+router.post('/api/sum', (req, res) => {
+  // クライアントから送信されたデータを取得
+  const { num1, num2 } = req.body;
+
+  // 数値に変換（もし送信されるデータが文字列の場合に備えて）
+  const number1 = parseFloat(num1);
+  const number2 = parseFloat(num2);
+
+  // 足し算を実行
+  const sum = add(number1, number2);
+
+  // 結果をクライアントに返す
   res.json({ sum: sum });
 });
 

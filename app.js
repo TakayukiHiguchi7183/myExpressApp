@@ -9,6 +9,7 @@ import logger from 'morgan';
 //ルータのインポート（routes配下にある）
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import apisRouter from './routes/apis.js';
 
 // Expressインスタンス作成。ここに必要情報を格納していく
 const app = express();
@@ -33,6 +34,7 @@ app.use(express.static(publicPath)); // 静的ファイル提供用ミドルウ�
 // ルーティング（/がきたらindex.jsに遷移、など）
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apisRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

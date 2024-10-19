@@ -7,6 +7,10 @@
     <button @click="calculateSum">Calculate</button>
     <p>Calculate result is {{ sum }} </p>
     <p>Today is {{ date }} !!!</p>
+
+    <input v-model="prompt" type="text" placeholder="Ask your question" />
+    <button @click="submitPrompt">Submit</button>
+    <p>AIからの回答: {{ answer }}</p>
   </div>
 </template>
 
@@ -17,7 +21,8 @@ export default {
       number1: '',
       number2: '',
       sum: '',
-      date: ''
+      date: '',
+      answer: ''
     };
   },
   mounted() {
@@ -52,6 +57,25 @@ export default {
       .then(response => response.json())
       .then(data => {
         this.sum = data.sum; // 受け取った結果を表示
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    },
+    // 質問を送信してAIの返答を受け取る
+    submitPrompt() {
+      fetch('/api/prompt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: this.prompt // 入力された質問を送信
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.answer = data.answer; // APIの返り値を表示
       })
       .catch(error => {
         console.error('Error:', error);

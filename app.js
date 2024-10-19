@@ -17,7 +17,7 @@ const app = express();
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const viewsPath = path.join(dirname, 'views');
-const publicPath = path.join(dirname, 'public');
+const publicPath = path.join(dirname, 'dist');
 
 // viewsフォルダ内ファイルのエンジン情報を格納（ejs）
 app.set('views', viewsPath);

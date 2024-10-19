@@ -2,8 +2,8 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+const filePath = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filePath);
 
 export default {
   // ビルドされたファイルの出力先を `dist` に設定

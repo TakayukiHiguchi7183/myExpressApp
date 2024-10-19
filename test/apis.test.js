@@ -1,6 +1,6 @@
 // test/index.test.js
 import {expect} from 'chai';
-import {add, getCurrentDate, callPython} from '../routes/index.js'; // 関数をインポート
+import {add, getCurrentDate, callPython} from '../routes/apis.js'; // 関数をインポート
 
 describe('add function', () => {
   it('should return 4 when adding 1 and 3', () => {

@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>Welcome to mypage</h1>
-      <p class="date">Today is {{ date }} !!!</p>
+      <h1>Welcome to my sample page !</h1>
+      <p class="date">Today is {{ date }} !</p>
     </div>
 
     <div class="calculator">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="ai-section">
-      <h2>Ask the AI</h2>
+      <h2>Ask the Generative AI !</h2>
       <div class="ai-input">
         <input v-model="prompt" type="text" placeholder="Ask your question" />
         <button class="submit-button" @click="submitPrompt">></button>

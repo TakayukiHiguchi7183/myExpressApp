@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 // 足し算結果を取得するAPI
-router.post('/api/sum', (req, res) => {
+router.post('/sum', (req, res) => {
     // クライアントから送信されたデータを取得
     const { num1, num2 } = req.body;
 
@@ -18,13 +18,13 @@ router.post('/api/sum', (req, res) => {
 });
 
   // 日付を取得するAPI
-router.get('/api/date', (req, res) => {
+router.get('/date', (req, res) => {
     const today = getCurrentDate();
     res.json({ date: today });
 });
 
   // ユーザの質問を後続と仲介するAPI
-router.post('/api/prompt', (req, res) => {
+router.post('/prompt', (req, res) => {
     // クライアントから送信されたデータを取得
     const { prompt } = req.body;
 

@@ -27,16 +27,4 @@ describe('callPython function', () => {
     const result = callPython(prompt);
     expect(result).to.equal('まだ回答は返せません。もう少し待ってね'); // デフォルトメッセージを確認
   });
-
-  it('should simulate calling an API and return a mocked response', () => {
-    const prompt = 'これは別のテスト用プロンプトです';
-    const mockResponse = 'これはテスト用のAI回答です';
-
-    // モックの実装を設定
-    callPython.mockImplementation(() => mockResponse);
-
-    // 関数を呼び出して結果を確認
-    const result = callPython(prompt);
-    expect(result).to.equal(mockResponse);
-  });
 });

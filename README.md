@@ -12,14 +12,19 @@
 1. リポジトリをクローンします:
    ```bash
    git clone https://github.com/TakayukiHiguchi7183/myExpressApp.git
-2. 初回のみ必要モジュールをインストールします（ルートディレクトリで実施してください）
+2. 必要モジュールをインストールします（ルートディレクトリで実施してください）
    ```bash
    npm install
-2. ローカルでの稼働を開始します:
+2. ローカルサーバの稼働を開始します:
     ```bash
     DEBUG=myexpressapp:* npm start
-3. ブラウザで```http://localhost:3000```にアクセスすると、ローカル実行できます
-4. Terminalで```control+C```を入力すると、アプリが終了します
+3. 別のTerminalでクライアントサーバ資産のビルドをします
+    ```bash
+    npm run build
+4. クライアントサーバの稼働を開始します
+    ```bash
+    npm run serve
+4. 両Terminal共に```control+C```を入力すると、稼働が終了します
 
 ## 設定方法（Configuration）
 

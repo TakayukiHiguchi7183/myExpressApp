@@ -8,7 +8,6 @@ import logger from 'morgan';
 
 //ルータのインポート（routes配下にある）
 import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
 import apisRouter from './routes/apis.js';
 
 // Expressインスタンス作成。ここに必要情報を格納していく
@@ -20,10 +19,6 @@ const dirname = path.dirname(filename);
 const viewsPath = path.join(dirname, 'views');
 const publicPath = path.join(dirname, 'dist');
 
-// viewsフォルダ内ファイルのエンジン情報を格納（ejs）
-app.set('views', viewsPath);
-app.set('view engine', 'ejs');
-
 // ミドルウェアをセットアップ
 app.use(logger('dev')); //ログ出力ミドルウェア
 app.use(express.json()); //json利用ミドルウェア
@@ -33,13 +28,16 @@ app.use(express.static(publicPath)); // 静的ファイル提供用ミドルウ�
 
 // ルーティング（/がきたらindex.jsに遷移、など）
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api', apisRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
 });
+
+// viewsフォルダ内ファイルのエンジン情報を格納（ejs）
+app.set('views', viewsPath);
+app.set('view engine', 'ejs');
 
 // error handler
 app.use((err, req, res, next) => {
